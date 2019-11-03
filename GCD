@@ -1,0 +1,32 @@
+class Program
+{        
+        public static void Main()
+        {
+            int.TryParse(Console.ReadLine(), out int input1);
+            int.TryParse(Console.ReadLine(), out int input2);
+
+            if (input1 > input2)
+            {
+                Console.WriteLine(GCD(input2, input1));
+            }
+            else
+            {
+                Console.WriteLine(GCD(input1, input2));
+            }
+
+        }
+        private static int GCD(int input1, int input2)
+        {
+            if (input1 == 0)
+            {
+                return input2;
+            }
+
+            if (input2 == 0)
+            {
+                return input1;
+            }
+
+            return GCD(input1, input1 % input2);
+        }
+}
