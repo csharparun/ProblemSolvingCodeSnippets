@@ -1,0 +1,47 @@
+Logic:
+
+0 0 -> 0
+0 1 -> 1
+1 0 -> 1
+0 0 -> 0
+
+Example:
+0  	00 	- 00 	-> 	00	-> 0  -> 0 XOR 0
+1  	01 	- 00 	-> 	01	-> 1  -> 0 XOR 1
+2  	10 	- 01 	-> 	11	-> 3  -> 1 XOR 2
+3  	11 	- 11 	-> 	00	-> 0  -> 2 XOR 3
+4 	100 	- 00 	-> 	100	-> 4  -> 3 XOR 4
+5 	101 	- 100 	-> 	001	-> 1  -> 4 XOR 5
+6 	110 	- 001 	-> 	111 	-> 7  -> 5 XOR 6
+7	  111 	- 111 	-> 	000 	-> 0  -> 6 XOR 7
+8	  1000	- 0000 	-> 	1000	-> 8  -> 7 XOR 8
+
+
+i.e., to calculate XOR, always 2 or more are required.
+
+class Program
+{
+        public static void Main()
+        {
+          int i = Convert.ToInt32(Console.ReadLine());
+          GetXOR(i)        
+        }
+        
+        static int GetXOR(int n)
+        {
+            // If n is a multiple of 4 
+            if (n % 4 == 0)
+                return n;
+
+            // If n%4 gives remainder 1 
+            if (n % 4 == 1)
+                return 1;
+
+            // If n%4 gives remainder 2 
+            if (n % 4 == 2)
+                return n + 1;
+
+            // If n%4 gives remainder 3 
+            return 0;
+        }
+}
